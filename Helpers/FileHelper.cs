@@ -14,7 +14,8 @@ namespace Students
     {
         public static void SaveToXml(string fileName, Journal journal)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Journal));
+            XmlSerializer serializer = new XmlSerializer(typeof(Journal),
+                    new[] { typeof(StudentBudget), typeof(StudentCommercial) });
             using (FileStream fs = new FileStream(fileName, FileMode.Create))
             {
                 serializer.Serialize(fs, journal);
@@ -22,12 +23,22 @@ namespace Students
         }
         public static Journal LoadFromXml(string fileName)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Journal));
+            XmlSerializer serializer = new XmlSerializer(typeof(Journal),
+                    new[] { typeof(StudentBudget), typeof(StudentCommercial) });
             try
             {
                 using (FileStream fs = new FileStream(fileName, FileMode.Open))
                 {
-                    return (Journal)serializer.Deserialize(fs);
+                    Journal journal = (Journal)serializer.Deserialize(fs);
+                    foreach (var group in journal.Groups)
+                    {
+                        foreach (var student in group.Students)
+                        {
+                            journal.Students.Add(student);
+                            student.Group = group;
+                        }
+                    }
+                    return journal;
                 }
             }
             catch

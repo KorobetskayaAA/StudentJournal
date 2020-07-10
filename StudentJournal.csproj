@@ -51,6 +51,8 @@
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Journal.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\StudentBudget.cs" />
+    <Compile Include="Model\StudentCommercial.cs" />
     <Compile Include="View\FormGroups.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +64,12 @@
     </Compile>
     <Compile Include="View\FormJournal.Designer.cs">
       <DependentUpon>FormJournal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormNewStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormNewStudent.designer.cs">
+      <DependentUpon>FormNewStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormStudent.cs">
       <SubType>Form</SubType>

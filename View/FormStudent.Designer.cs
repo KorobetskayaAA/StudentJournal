@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Семестр 1", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Семестр 2", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Семестр 1", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Семестр 2", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Математика",
             "1",
             "Экзамен",
             "хорошо"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Базы данных",
             "2",
             "Зачет",
@@ -64,8 +64,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.maskedTextBoxPay = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxStipend = new System.Windows.Forms.TextBox();
+            this.textBoxPaymentDebt = new System.Windows.Forms.TextBox();
+            this.buttonPay = new System.Windows.Forms.Button();
+            this.buttonTransfer = new System.Windows.Forms.Button();
+            this.labelPaymentDebt = new System.Windows.Forms.Label();
+            this.labelStipend = new System.Windows.Forms.Label();
+            this.labelType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSurname.Location = new System.Drawing.Point(18, 29);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(524, 20);
+            this.textBoxSurname.Size = new System.Drawing.Size(388, 20);
             this.textBoxSurname.TabIndex = 1;
             this.textBoxSurname.TextChanged += new System.EventHandler(this.textBoxSurname_TextChanged);
             this.textBoxSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_RusOnly);
@@ -100,7 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(18, 75);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(524, 20);
+            this.textBoxName.Size = new System.Drawing.Size(388, 20);
             this.textBoxName.TabIndex = 3;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             this.textBoxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_RusOnly);
@@ -121,7 +129,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPatronymic.Location = new System.Drawing.Point(18, 127);
             this.textBoxPatronymic.Name = "textBoxPatronymic";
-            this.textBoxPatronymic.Size = new System.Drawing.Size(524, 20);
+            this.textBoxPatronymic.Size = new System.Drawing.Size(388, 20);
             this.textBoxPatronymic.TabIndex = 5;
             this.textBoxPatronymic.TextChanged += new System.EventHandler(this.textBoxPatronymic_TextChanged);
             // 
@@ -193,22 +201,22 @@
             this.columnHeaderSemestr,
             this.columnHeaderType,
             this.columnHeaderGradeName});
-            listViewGroup3.Header = "Семестр 1";
-            listViewGroup3.Name = "listViewGroup1";
-            listViewGroup4.Header = "Семестр 2";
-            listViewGroup4.Name = "listViewGroup2";
+            listViewGroup5.Header = "Семестр 1";
+            listViewGroup5.Name = "listViewGroup1";
+            listViewGroup6.Header = "Семестр 2";
+            listViewGroup6.Name = "listViewGroup2";
             this.listViewGrades.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup5,
+            listViewGroup6});
             this.listViewGrades.HideSelection = false;
-            listViewItem3.Group = listViewGroup3;
-            listViewItem4.Group = listViewGroup4;
+            listViewItem5.Group = listViewGroup5;
+            listViewItem6.Group = listViewGroup6;
             this.listViewGrades.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem5,
+            listViewItem6});
             this.listViewGrades.Location = new System.Drawing.Point(6, 6);
             this.listViewGrades.Name = "listViewGrades";
-            this.listViewGrades.Size = new System.Drawing.Size(551, 263);
+            this.listViewGrades.Size = new System.Drawing.Size(415, 263);
             this.listViewGrades.TabIndex = 13;
             this.listViewGrades.UseCompatibleStateImageBehavior = false;
             this.listViewGrades.View = System.Windows.Forms.View.Details;
@@ -273,7 +281,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(571, 332);
+            this.tabControl1.Size = new System.Drawing.Size(435, 332);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -289,13 +297,21 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(563, 306);
+            this.tabPage1.Size = new System.Drawing.Size(427, 306);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Личные данные";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.maskedTextBoxPay);
+            this.tabPage2.Controls.Add(this.textBoxStipend);
+            this.tabPage2.Controls.Add(this.textBoxPaymentDebt);
+            this.tabPage2.Controls.Add(this.buttonPay);
+            this.tabPage2.Controls.Add(this.buttonTransfer);
+            this.tabPage2.Controls.Add(this.labelPaymentDebt);
+            this.tabPage2.Controls.Add(this.labelStipend);
+            this.tabPage2.Controls.Add(this.labelType);
             this.tabPage2.Controls.Add(this.comboBoxGroup);
             this.tabPage2.Controls.Add(this.labelStudbilet);
             this.tabPage2.Controls.Add(this.textBoxStudbilet);
@@ -303,10 +319,22 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(563, 306);
+            this.tabPage2.Size = new System.Drawing.Size(427, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Учеба";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(18, 80);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(392, 21);
+            this.comboBoxGroup.TabIndex = 12;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -317,26 +345,100 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(563, 306);
+            this.tabPage3.Size = new System.Drawing.Size(427, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Оценки";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // comboBoxGroup
+            // maskedTextBoxPay
             // 
-            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Location = new System.Drawing.Point(18, 80);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(527, 21);
-            this.comboBoxGroup.TabIndex = 12;
-            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
+            this.maskedTextBoxPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxPay.HidePromptOnLeave = true;
+            this.maskedTextBoxPay.Location = new System.Drawing.Point(335, 164);
+            this.maskedTextBoxPay.Mask = "999,990.99";
+            this.maskedTextBoxPay.Name = "maskedTextBoxPay";
+            this.maskedTextBoxPay.Size = new System.Drawing.Size(75, 20);
+            this.maskedTextBoxPay.TabIndex = 55;
+            // 
+            // textBoxStipend
+            // 
+            this.textBoxStipend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxStipend.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxStipend.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxStipend.Location = new System.Drawing.Point(76, 154);
+            this.textBoxStipend.Name = "textBoxStipend";
+            this.textBoxStipend.ReadOnly = true;
+            this.textBoxStipend.Size = new System.Drawing.Size(61, 13);
+            this.textBoxStipend.TabIndex = 54;
+            this.textBoxStipend.Text = "2 000 р.";
+            this.textBoxStipend.Visible = false;
+            // 
+            // textBoxPaymentDebt
+            // 
+            this.textBoxPaymentDebt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxPaymentDebt.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxPaymentDebt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPaymentDebt.Location = new System.Drawing.Point(150, 167);
+            this.textBoxPaymentDebt.Name = "textBoxPaymentDebt";
+            this.textBoxPaymentDebt.ReadOnly = true;
+            this.textBoxPaymentDebt.Size = new System.Drawing.Size(51, 13);
+            this.textBoxPaymentDebt.TabIndex = 53;
+            this.textBoxPaymentDebt.Text = "10 000 р.";
+            // 
+            // buttonPay
+            // 
+            this.buttonPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPay.Location = new System.Drawing.Point(245, 161);
+            this.buttonPay.Name = "buttonPay";
+            this.buttonPay.Size = new System.Drawing.Size(75, 23);
+            this.buttonPay.TabIndex = 52;
+            this.buttonPay.Text = "Оплатить";
+            this.buttonPay.UseVisualStyleBackColor = true;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
+            // 
+            // buttonTransfer
+            // 
+            this.buttonTransfer.Location = new System.Drawing.Point(207, 119);
+            this.buttonTransfer.Name = "buttonTransfer";
+            this.buttonTransfer.Size = new System.Drawing.Size(156, 23);
+            this.buttonTransfer.TabIndex = 51;
+            this.buttonTransfer.Text = "Перевести на бюджет";
+            this.buttonTransfer.UseVisualStyleBackColor = true;
+            this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
+            // 
+            // labelPaymentDebt
+            // 
+            this.labelPaymentDebt.AutoSize = true;
+            this.labelPaymentDebt.Location = new System.Drawing.Point(15, 166);
+            this.labelPaymentDebt.Name = "labelPaymentDebt";
+            this.labelPaymentDebt.Size = new System.Drawing.Size(138, 13);
+            this.labelPaymentDebt.TabIndex = 50;
+            this.labelPaymentDebt.Text = "Долг по оплате обучения:";
+            // 
+            // labelStipend
+            // 
+            this.labelStipend.AutoSize = true;
+            this.labelStipend.Location = new System.Drawing.Point(15, 153);
+            this.labelStipend.Name = "labelStipend";
+            this.labelStipend.Size = new System.Drawing.Size(64, 13);
+            this.labelStipend.TabIndex = 49;
+            this.labelStipend.Text = "Стипендия:";
+            this.labelStipend.Visible = false;
+            // 
+            // labelType
+            // 
+            this.labelType.AutoSize = true;
+            this.labelType.Location = new System.Drawing.Point(15, 124);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(192, 13);
+            this.labelType.TabIndex = 48;
+            this.labelType.Text = "Обучается на коммерческой основе";
             // 
             // FormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 332);
+            this.ClientSize = new System.Drawing.Size(435, 332);
             this.Controls.Add(this.tabControl1);
             this.MinimumSize = new System.Drawing.Size(370, 370);
             this.Name = "FormStudent";
@@ -379,6 +481,14 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ColumnHeader columnHeaderType;
         private System.Windows.Forms.ComboBox comboBoxGroup;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPay;
+        private System.Windows.Forms.TextBox textBoxStipend;
+        private System.Windows.Forms.TextBox textBoxPaymentDebt;
+        private System.Windows.Forms.Button buttonPay;
+        private System.Windows.Forms.Button buttonTransfer;
+        private System.Windows.Forms.Label labelPaymentDebt;
+        private System.Windows.Forms.Label labelStipend;
+        private System.Windows.Forms.Label labelType;
     }
 }
 

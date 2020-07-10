@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewJournal = new System.Windows.Forms.DataGridView();
-            this.studbiletDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.buttonSearchStudbilet = new System.Windows.Forms.Button();
@@ -49,12 +44,18 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studbiletDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.groupBoxGroup.SuspendLayout();
             this.groupBoxStudent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewJournal
@@ -75,53 +76,6 @@
             this.dataGridViewJournal.Size = new System.Drawing.Size(574, 334);
             this.dataGridViewJournal.TabIndex = 0;
             this.dataGridViewJournal.DoubleClick += new System.EventHandler(this.EditStudent);
-            // 
-            // studbiletDataGridViewTextBoxColumn
-            // 
-            this.studbiletDataGridViewTextBoxColumn.DataPropertyName = "Studbilet";
-            this.studbiletDataGridViewTextBoxColumn.HeaderText = "№ студбилета";
-            this.studbiletDataGridViewTextBoxColumn.Name = "studbiletDataGridViewTextBoxColumn";
-            this.studbiletDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fIODataGridViewTextBoxColumn
-            // 
-            this.fIODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fIODataGridViewTextBoxColumn.DataPropertyName = "FIO";
-            this.fIODataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.fIODataGridViewTextBoxColumn.Name = "fIODataGridViewTextBoxColumn";
-            this.fIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.fIODataGridViewTextBoxColumn.Width = 59;
-            // 
-            // groupDataGridViewTextBoxColumn
-            // 
-            this.groupDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.groupDataGridViewTextBoxColumn.DataPropertyName = "Group";
-            this.groupDataGridViewTextBoxColumn.HeaderText = "Группа";
-            this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
-            this.groupDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // AverageGrade
-            // 
-            this.AverageGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.AverageGrade.DataPropertyName = "AverageGrade";
-            this.AverageGrade.HeaderText = "Средний балл";
-            this.AverageGrade.Name = "AverageGrade";
-            this.AverageGrade.ReadOnly = true;
-            this.AverageGrade.Width = 94;
-            // 
-            // Rating
-            // 
-            this.Rating.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Rating.DataPropertyName = "Rating";
-            this.Rating.HeaderText = "Рейтинг";
-            this.Rating.Name = "Rating";
-            this.Rating.ReadOnly = true;
-            this.Rating.Width = 73;
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(Students.Model.Student);
             // 
             // panel1
             // 
@@ -257,6 +211,56 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.AddStudent);
             // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(Students.Model.Student);
+            // 
+            // studbiletDataGridViewTextBoxColumn
+            // 
+            this.studbiletDataGridViewTextBoxColumn.DataPropertyName = "Studbilet";
+            this.studbiletDataGridViewTextBoxColumn.HeaderText = "№ студбилета";
+            this.studbiletDataGridViewTextBoxColumn.Name = "studbiletDataGridViewTextBoxColumn";
+            this.studbiletDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fIODataGridViewTextBoxColumn
+            // 
+            this.fIODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fIODataGridViewTextBoxColumn.DataPropertyName = "FIO";
+            this.fIODataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.fIODataGridViewTextBoxColumn.Name = "fIODataGridViewTextBoxColumn";
+            this.fIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.fIODataGridViewTextBoxColumn.Width = 59;
+            // 
+            // groupDataGridViewTextBoxColumn
+            // 
+            this.groupDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.groupDataGridViewTextBoxColumn.DataPropertyName = "Group";
+            this.groupDataGridViewTextBoxColumn.HeaderText = "Группа";
+            this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
+            this.groupDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // AverageGrade
+            // 
+            this.AverageGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.AverageGrade.DataPropertyName = "AverageGrade";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.AverageGrade.DefaultCellStyle = dataGridViewCellStyle1;
+            this.AverageGrade.HeaderText = "Средний балл";
+            this.AverageGrade.Name = "AverageGrade";
+            this.AverageGrade.ReadOnly = true;
+            this.AverageGrade.Width = 94;
+            // 
+            // Rating
+            // 
+            this.Rating.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Rating.DataPropertyName = "Rating";
+            this.Rating.HeaderText = "Рейтинг";
+            this.Rating.Name = "Rating";
+            this.Rating.ReadOnly = true;
+            this.Rating.Width = 73;
+            // 
             // FormJournal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,13 +273,13 @@
             this.Text = "Журнал";
             this.Activated += new System.EventHandler(this.FormJournal_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();
             this.groupBoxGroup.ResumeLayout(false);
             this.groupBoxGroup.PerformLayout();
             this.groupBoxStudent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,15 +296,15 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studbiletDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
         private System.Windows.Forms.CheckBox checkBoxRatio;
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.Button buttonSearchStudbilet;
         private System.Windows.Forms.Button buttonSearchFIO;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studbiletDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
     }
 }

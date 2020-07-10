@@ -76,5 +76,13 @@ namespace Students.Model
                 return ExamGradation[Name];
             }
         }
+
+        public bool IsDebt
+        {
+            get
+            {
+                return Value <= 2;
+            }
+        }
     }
 }

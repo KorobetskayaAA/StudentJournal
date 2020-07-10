@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Students.Model
 {
@@ -30,6 +31,7 @@ namespace Students.Model
             Students = new List<Student>();
             Groups = new List<Group>();
         }
+        [XmlIgnore]
         public List<Student> Students { get; }
 
         public void AddStudent(Student student)
@@ -47,6 +49,28 @@ namespace Students.Model
                     student.Group.Students.Remove(student);
                 Students.Remove(student);
             }
+        }
+
+        public Student MoveToBudget(Student student)
+        {
+            if (!(student is StudentBudget))
+            {
+                int index = Students.IndexOf(student);
+                Students[index] = new StudentBudget(student);
+                return Students[index];
+            }
+            return student;
+        }
+
+        public Student MoveToCommercial(Student student)
+        {
+            if (!(student is StudentCommercial))
+            {
+                int index = Students.IndexOf(student);
+                Students[index] = new StudentCommercial(student);
+                return Students[index];
+            }
+            return student;
         }
 
         public List<Group> Groups { get; set; }

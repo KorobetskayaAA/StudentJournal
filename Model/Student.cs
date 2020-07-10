@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace Students.Model
 {
-    public class Student
+    public abstract class Student
     {
         public Student() 
         {
@@ -18,9 +18,27 @@ namespace Students.Model
             Patronymic = "";
             Surname = "";
             BirthDate = DateTime.Now.AddYears(-18);
-            Group = new Group();
+            Group = null;
             grades = new List<Grade>();
         }
+        public Student(Student student)
+        {
+            if (student != null)
+            {
+                Studbilet = student.Studbilet;
+                Name = student.Name;
+                Patronymic = student.Patronymic;
+                Surname = student.Surname;
+                BirthDate = student.BirthDate;
+                Group = student.Group;
+                grades = student.Grades;
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
         /// <summary>
         /// Номер студенческого билета
         /// </summary>
@@ -51,6 +69,7 @@ namespace Students.Model
         [XmlAttribute]
         public DateTime BirthDate { get; set; }
         private Group group = null;
+
         [XmlIgnore]
         public Group Group 
         { 
@@ -61,7 +80,7 @@ namespace Students.Model
                 {
                     if (group != null)
                         group.Students.Remove(this);
-                    if (value != null)
+                    if (value != null && !value.Students.Contains(this))
                         value.Students.Add(this);
                 }
                 group = value;
@@ -91,8 +110,52 @@ namespace Students.Model
         {
             get
             {
-                return group.Rating.IndexOf(this) + 1;
+                double avg = AverageGrade;
+                return group.Students.Count(student => student.AverageGrade > avg) + 1;
             }
+        }
+
+        /// <summary>
+        /// Количество долгов (несданных зачетов и экзаменов)
+        /// </summary>
+        public int DebtsCount
+        {
+            get
+            {
+                int count = 0;
+                foreach (Grade gr in grades)
+                {
+                    if (gr.IsDebt)
+                        count++;
+                }
+                return count;
+            }
+        }
+
+        /// <summary>
+        /// Определяет номер последнего семестра, за который есть оценки
+        /// </summary>
+        protected int LastSemestr
+        {
+            get
+            {
+                int maxSemestr = 1;
+                foreach (Grade gr in grades)
+                {
+                    if (gr.Semestr > maxSemestr)
+                        maxSemestr = gr.Semestr;
+                }
+                return maxSemestr;
+            }
+        }
+
+        /// <summary>
+        /// Нужно ли отчислить данного студента.
+        /// </summary>
+        /// <returns>Возвращает true, если студент должен быть отчислен.</returns>
+        public virtual bool ShouldExpel()
+        {
+            return DebtsCount > 5;
         }
     }
 }

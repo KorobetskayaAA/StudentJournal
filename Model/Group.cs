@@ -31,11 +31,10 @@ namespace Students.Model
         [XmlAttribute]
         public string EducationForm { get; set; }
         public static readonly string[] EducationForms =
-            new[] { "Очная", "Заочная", "Очно-заочная" };
+            new[] { "очная", "заочная", "очно-заочная" };
 
         [XmlAttribute]
         public string Name { get; set; }
-
         public List<Student> Students { get; set; }
 
         public int StudentsCount { get => Students.Count; }
