@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace Students.Model
 {
@@ -27,6 +28,7 @@ namespace Students.Model
         }
         public string Dicipline { get; set; }
         public int Semestr { get; set; }
+        [XmlAttribute]
         public GradeType Type { get; set; }
         public string Name { get; set; }
         // TO DO проверить правильность имени оценки
@@ -65,6 +67,14 @@ namespace Students.Model
                 return new List<string>(ZachetGradation.Keys).ToArray();
             return new List<string>(ExamGradation.Keys).ToArray();
         }
-        public int Value { get => ExamGradation[Name]; }
+        public int Value 
+        {
+            get
+            {
+                if (Type == GradeType.Зачет)
+                    return ZachetGradation[Name];
+                return ExamGradation[Name];
+            }
+        }
     }
 }

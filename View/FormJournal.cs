@@ -23,7 +23,7 @@ namespace Students
 
             journal = FileHelper.LoadFromXml(fileName);
 
-            LoadTestData();
+            //LoadTestData();
 
             dataGridViewJournal.DataSource = journal.Students;
             comboBoxGroup.DataSource = journal.Groups;
@@ -46,9 +46,24 @@ namespace Students
             }
             );
             journal.Students[0].Grades.Add(
-                new Grade("Математика", 1, GradeType.Экзамен, "отлично")
+                new Grade("Математика", 1, GradeType.Экзамен, "хорошо")
             );
             journal.Students[0].Grades.Add(
+                new Grade("БД", 2, GradeType.Зачет, "зачтено")
+            );
+            journal.AddStudent(new Student()
+            {
+                Studbilet = "18004398",
+                Surname = "Канунников",
+                Name = "Артем",
+                Patronymic = "Валерьянович",
+                Group = journal.Groups[0]
+            }
+            );
+            journal.Students[1].Grades.Add(
+                new Grade("Математика", 1, GradeType.Экзамен, "отлично")
+            );
+            journal.Students[1].Grades.Add(
                 new Grade("БД", 2, GradeType.Зачет, "зачтено")
             );
             journal.AddStudent(new Student()
@@ -94,19 +109,16 @@ namespace Students
         {
             dataGridViewJournal.DataSource = null;
             if (comboBoxGroup.SelectedItem != null)
-                dataGridViewJournal.DataSource =
-                    (comboBoxGroup.SelectedItem as Group).Students;
+                dataGridViewJournal.DataSource = checkBoxRatio.Checked ?
+                    (comboBoxGroup.SelectedItem as Group).Rating :
+                    (comboBoxGroup.SelectedItem as Group).Alphabetical;
             else
                 dataGridViewJournal.DataSource = journal.Students;
         }
 
-        int SelectedStudentIndex
-        {
-            get => dataGridViewJournal.CurrentRow.Index;
-        }
         Student SelectedStudent
         {
-            get => journal.Students[SelectedStudentIndex];
+            get => dataGridViewJournal.CurrentRow.DataBoundItem as Student;
         }
         private void EditStudent(object sender, EventArgs e)
         {
@@ -135,6 +147,40 @@ namespace Students
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateDataSourceGridView();
+        }
+
+        private void checkBoxRatio_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateDataSourceGridView();
+        }
+
+        private void buttonSearchFIO_Click(object sender, EventArgs e)
+        {
+            SearchInColumn(1);
+        }
+        private void buttonSearchStudbilet_Click(object sender, EventArgs e)
+        {
+            SearchInColumn(0);
+        }
+
+        private void SearchInColumn(int col)
+        {
+            int i = 0;
+            if (dataGridViewJournal.CurrentCell.ColumnIndex == col &&
+                dataGridViewJournal.CurrentCell.FormattedValue.ToString().Contains(textBoxSearch.Text))
+            {
+                i = dataGridViewJournal.CurrentCell.RowIndex + 1;
+            }
+            while (i < dataGridViewJournal.RowCount)
+            {
+                if (dataGridViewJournal[col, i].FormattedValue.ToString().Contains(textBoxSearch.Text))
+                {
+                    dataGridViewJournal.CurrentCell = dataGridViewJournal[col, i];
+                    return;
+                }
+                i++;
+            }
+            MessageBox.Show("Ничего не найдено!");
         }
     }
 }

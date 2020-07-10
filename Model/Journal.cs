@@ -8,12 +8,29 @@ namespace Students.Model
 {
     public class Journal
     {
+        public void AddGroup(Group group)
+        {
+            if (!Groups.Contains(group))
+            {
+                Groups.Add(group);
+            }
+        }
+        public void RemoveGroup(Group group)
+        {
+            if (Groups.Contains(group))
+            {
+                foreach (var student in group.Students)
+                    student.Group = null;
+                Groups.Remove(group);
+            }
+        }
+
         public Journal()
         {
             Students = new List<Student>();
             Groups = new List<Group>();
         }
-        public List<Student> Students { get; set; }
+        public List<Student> Students { get; }
 
         public void AddStudent(Student student)
         {
@@ -33,22 +50,6 @@ namespace Students.Model
         }
 
         public List<Group> Groups { get; set; }
-        public void AddGroup(Group group)
-        {
-            if (!Groups.Contains(group))
-            {
-                Groups.Add(group);
-            }
-        }
-        public void RemoveGroup(Group group)
-        {
-            if (Groups.Contains(group))
-            {
-                foreach (var student in group.Students)
-                    student.Group = null;
-                Groups.Remove(group);
-            }
-        }
 
     }
 }

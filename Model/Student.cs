@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Xml.Serialization;
+
+
 namespace Students.Model
 {
     public class Student
@@ -21,9 +24,13 @@ namespace Students.Model
         /// <summary>
         /// Номер студенческого билета
         /// </summary>
+        [XmlAttribute]
         public string Studbilet { get; set; }
+        [XmlAttribute]
         public string Name { get; set; }
+        [XmlAttribute]
         public string Patronymic { get; set; }
+        [XmlAttribute]
         public string Surname { get; set; }
         public string FIO
         {
@@ -41,8 +48,10 @@ namespace Students.Model
                 return fio;
             }
         }
+        [XmlAttribute]
         public DateTime BirthDate { get; set; }
         private Group group = null;
+        [XmlIgnore]
         public Group Group 
         { 
             get => group; 
@@ -62,5 +71,28 @@ namespace Students.Model
         private List<Grade> grades;
 
         public List<Grade> Grades { get => grades; }
+
+        public double AverageGrade
+        {
+            get
+            {
+                try
+                {
+                    return Grades.Select(grade => grade.Value).Average();
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public int Rating
+        {
+            get
+            {
+                return group.Rating.IndexOf(this) + 1;
+            }
+        }
     }
 }
